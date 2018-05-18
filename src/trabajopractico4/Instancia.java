@@ -10,14 +10,15 @@ package trabajopractico4;
  * @author Bruno
  */
 public class Instancia {
-    private int experimento;
+    private int experimento; 
     private double rndRecuerdaMensaje;
     private String recuerdaMensaje;
     private double rndCompraProducto;
     private String comprarProducto;
-    private double probabilidadRespuestaDefinitivamenteSi;
+    private double sumatoriaCompras;
 
     public Instancia() {
+        
     }
 
     public int getExperimento() {
@@ -60,12 +61,12 @@ public class Instancia {
         this.comprarProducto = comprarProducto;
     }
 
-    public double getProbabilidadRespuestaDefinitivamenteSi() {
-        return probabilidadRespuestaDefinitivamenteSi;
+    public double getSumatoriaCompras() {
+        return sumatoriaCompras;
     }
 
-    public void setProbabilidadRespuestaDefinitivamenteSi(double probabilidadRespuestaDefinitivamenteSi) {
-        this.probabilidadRespuestaDefinitivamenteSi = probabilidadRespuestaDefinitivamenteSi;
+    public void setSumatoriaCompras(double sumatoriaCompras) {
+        this.sumatoriaCompras = sumatoriaCompras;
     }
     
     
