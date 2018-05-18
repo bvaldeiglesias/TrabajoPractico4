@@ -57,7 +57,7 @@ public class MainFXMLController implements Initializable
         recuerdaMensaje.setCellValueFactory(new PropertyValueFactory<>("recuerdaMensaje"));
         rndComprarProducto.setCellValueFactory(new PropertyValueFactory<>("rndComprarProducto"));
         comprarProducto.setCellValueFactory(new PropertyValueFactory<>("comprarProducto"));
-        acumuladorCompras.setCellValueFactory(new PropertyValueFactory<>("acumuladorCompras"));
+        acumuladorCompras.setCellValueFactory(new PropertyValueFactory<>("sumatoriaCompras"));
 
         tblMontecarlo.getColumns().addAll(nroExperimento, rndRecuerdaMensaje, recuerdaMensaje, rndComprarProducto, comprarProducto, acumuladorCompras);
 
@@ -77,7 +77,7 @@ public class MainFXMLController implements Initializable
             desde = 1;
         }
 
-        Instancia i1 = new Instancia();
+        instanciaActual = new Instancia();
 
         for (int i = 0; i < cantidad; i++)
         {
@@ -86,34 +86,30 @@ public class MainFXMLController implements Initializable
             if (experimento >= desde && experimento <= hasta)
             {
 
-                i1.setExperimento(experimento);
+                instanciaActual.setExperimento(experimento);
 
                 double rndRecuerda = Math.random();
-                i1.setRndRecuerdaMensaje(rndRecuerda);
-                i1.setRecuerdaMensaje(respuestaRecuerda(rndRecuerda));
+                instanciaActual.setRndRecuerdaMensaje(rndRecuerda);
+                instanciaActual.setRecuerdaMensaje(respuestaRecuerda(rndRecuerda));
 
                 double rndCompra = Math.random();
-                i1.setRndCompraProducto(rndCompra);
+                instanciaActual.setRndCompraProducto(rndCompra);
 
                 String resp = respuestaCompraSI(rndCompra);
-                i1.setComprarProducto(resp);
+                instanciaActual.setComprarProducto(resp);
 
                 if ("Definitivamente si".equals(resp))
                 {
                     acumuladorCompras++;
-                    i1.setSumatoriaCompras(acumuladorCompras);
+                    instanciaActual.setSumatoriaCompras(acumuladorCompras);
 
-                } else
-                {
-                    i1.setSumatoriaCompras(acumuladorCompras);
                 }
 
-                String s_exp = String.valueOf(i1.getExperimento());
-                String s_rndRec = String.valueOf(i1.getRndRecuerdaMensaje());
-                String s_rndComp = String.valueOf(i1.getRndCompraProducto());
-                String s_sum = String.valueOf(i1.getSumatoriaCompras());
-//Row(String nroExperimento, String rndRecuerda, String recuerda, String rndComprar, String comprar, String sumComprar)
-                Row r = new Row(s_exp, s_rndRec, i1.getRecuerdaMensaje(), s_rndComp, i1.getComprarProducto(), s_sum);
+                String s_exp = String.valueOf(instanciaActual.getExperimento());
+                String s_rndRec = String.valueOf(instanciaActual.getRndRecuerdaMensaje());
+                String s_rndComp = String.valueOf(instanciaActual.getRndCompraProducto());
+                String s_sum = String.valueOf(instanciaActual.getSumatoriaCompras());
+                Row r = new Row(s_exp, s_rndRec, instanciaActual.getRecuerdaMensaje(), s_rndComp, instanciaActual.getComprarProducto(), s_sum);
                 tblMontecarlo.getItems().add(r);
 
             } else
@@ -137,6 +133,8 @@ public class MainFXMLController implements Initializable
                 }
             }
         }
+        double probabilidadCompra = (double)instanciaActual.getSumatoriaCompras()/(double)cantidad;
+        txtProbabilidad.setText(String.valueOf(probabilidadCompra));
 
     }
 

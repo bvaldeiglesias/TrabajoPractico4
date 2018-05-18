@@ -15,7 +15,7 @@ public class Instancia {
     private String recuerdaMensaje;
     private double rndCompraProducto;
     private String comprarProducto;
-    private double sumatoriaCompras;
+    private int sumatoriaCompras;
 
     public Instancia() {
         
@@ -61,11 +61,11 @@ public class Instancia {
         this.comprarProducto = comprarProducto;
     }
 
-    public double getSumatoriaCompras() {
+    public int getSumatoriaCompras() {
         return sumatoriaCompras;
     }
 
-    public void setSumatoriaCompras(double sumatoriaCompras) {
+    public void setSumatoriaCompras(int sumatoriaCompras) {
         this.sumatoriaCompras = sumatoriaCompras;
     }
     

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabajopractico4.MainFXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trabajopractico4.MainFXMLController">
    <center>
       <TableView fx:id="tblMontecarlo" prefHeight="458.0" prefWidth="836.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -30,21 +30,44 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="75.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Cantidad de Experimentos:" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <TextField fx:id="txtCantExperimentos" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+            <Label text="Cantidad de Experimentos:" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin></Label>
+            <TextField fx:id="txtCantExperimentos" GridPane.columnIndex="1" GridPane.valignment="CENTER">
+               <opaqueInsets>
+                  <Insets bottom="2.0" />
+               </opaqueInsets></TextField>
             <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" />
-            <Label text="Probabilidad gral. respuesta &quot;definitivamente si&quot;:" GridPane.columnIndex="4" />
+            <Label text="Probabilidad gral. respuesta &quot;definitivamente si&quot;:" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+               <padding>
+                  <Insets right="10.0" />
+               </padding></Label>
             <TextField fx:id="txtProbabilidad" editable="false" GridPane.columnIndex="5" />
-            <Button fx:id="btnSimular" mnemonicParsing="false" onAction="#handleBtnSimular" text="Simular" GridPane.columnIndex="2" />
-            <Label text="Hasta:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Label text="Desde:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <TextField fx:id="txtDesde" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtHasta" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btnSimular" mnemonicParsing="false" onAction="#handleBtnSimular" text="Simular" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="Hasta:" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin></Label>
+            <Label text="Desde:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin></Label>
+            <TextField fx:id="txtDesde" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <opaqueInsets>
+                  <Insets bottom="2.0" top="1.0" />
+               </opaqueInsets></TextField>
+            <TextField fx:id="txtHasta" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <opaqueInsets>
+                  <Insets top="1.0" />
+               </opaqueInsets></TextField>
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" left="20.0" right="20.0" />
